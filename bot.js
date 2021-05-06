@@ -4,7 +4,7 @@ require('dotenv').config();
 const { Client, MessageEmbed } = require ("discord.js");
 global.Discord = require( "discord.js");
 const client = new Client();
-const prefix = process.env.prefix;
+const prefix = process.env.prefix; 
 const beautify = require('js-beautify')
 
 //beautify settings
