@@ -52,7 +52,7 @@ let sysCommands = {
             }
             editableCommands[ newCommand ].body = func;
             
-            fs.writeFileSync( './editable/commands.json', JSON.stringify( editableCommands, null, "\t" ) );
+            // fs.writeFileSync( './editable/commands.json', JSON.stringify( editableCommands, null, "\t" ) );
 
             message.reply( ( isNew ? "Created" : "Updated" ) + " command: " + newCommand ); 
         },
