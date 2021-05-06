@@ -1,0 +1,12 @@
+{
+	"gif": {
+		"body": "let cmds = content.split(\"\\\"\").slice( 1 ); console.log( cmds ); if ( cmds.length != 2 ) return; giphy.search( 'gifs', {\"q\": cmds[0].split(\" \") } ).then( (response) => { let num = 1; let cmdNum = parseInt( cmds[1] ); if( cmdNum > 0 && cmdNum <= 10 ) num = cmdNum; let gifs = response.data.slice( 0, num ); message.reply( `Fetching ${num} gifs of ${ cmds[0] }`  ); gifs.forEach( ( gif ) => { message.channel.send( { files: [ gif.images.fixed_height.url ] }).catch( (err) => { message.channel.send( \"Error fetching Gifs\\nError: \" + err ); })  }); }).then( () => console.log( \"done\") );",
+		"description": "Fetch gifs from Giphy: $gif \"Your Gif Query\" <num_of_gifs>"
+	},
+	"getgif": {
+		"body": "\nlet cmds = content.split(\"\\\"\").slice(1);\nconsole.log(cmds);\nif (cmds.length != 2) return;\ngiphy.search('gifs', {\n    \"q\": cmds[0].split(\" \")\n}).then((response) => {\n    let num = 1;\n    let cmdNum = parseInt(cmds[1]);\n    if (cmdNum > 0 && cmdNum <= 10) num = cmdNum;\n    let gifs = response.data.slice(0, num);\n    message.reply(`Fetching ${num} gifs of ${ cmds[0] }`);\n    gifs.forEach((gif) => {\n        message.channel.send({\n            files: [gif.images.fixed_height.url]\n        }).catch((err) => {\n            message.channel.send(\"Error fetching Gifs\\nError: \" + err);\n        })\n    });\n}).then(() => console.log(\"done\"));\n"
+	},
+	"func": {
+		"body": "\nlet args = message.content.split( \" \" ).slice( 1 );\nmessage.channel.send( args );\nconst embed = new Discord.MessageEmbed().setTitle(\"Embed\").setDescription( args.join(\"•\") );\nmessage.channel.send(embed);\n"
+	}
+}
